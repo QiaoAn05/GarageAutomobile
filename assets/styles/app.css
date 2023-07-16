@@ -1,0 +1,11 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+    background-color: lightgray;
+    min-height: 100vh;
+}
+
+button {
+    color: pink;
+    background: green;
+}
