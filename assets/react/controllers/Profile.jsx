@@ -10,10 +10,10 @@ const Profile = (props) => {
           <div className="row g-0">
             <h2 className='mb-5'>Mes informations personnelles</h2>
             <div className="col-md-4">
-              <p>Nom: </p>
-              <p>Prénom: </p>
-              <p>Tél: </p>
-              <p>Email: </p>
+              <p><b>Nom:</b> </p>
+              <p><b>Prénom:</b> </p>
+              <p><b>Tél:</b> </p>
+              <p><b>Email:</b> </p>
             </div>
             <div className="col-md-8 text-end">
               <p>Rôle:</p>
