@@ -11,7 +11,7 @@ const Header = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Accueil</a>
+                <a className="nav-link active" aria-current="page" href="/">Accueil</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Réparations & entretiens</a>
@@ -23,7 +23,7 @@ const Header = (props) => {
                 <a className="nav-link" href="#">Contact</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Connexion</a>
+                <a className="nav-link" href="/login">Connection</a>
               </li>
             </ul>
           </div>

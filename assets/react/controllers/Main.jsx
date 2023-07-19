@@ -85,13 +85,13 @@ const Main = (props) => {
       <section className='container comment-form w-50 mb-5'>
         <h2 className='text-center'>Votre avis</h2>
         <div className="mb-3">
-          <input type="name" className="form-control" id="exampleFormControlInput1" placeholder="Nom" required/>
+          <input type="name" className="form-control" id="nameIndex" placeholder="Nom" required/>
         </div>
         <div className="mb-3">
-          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder='Votre avis...' required></textarea>
+          <textarea className="form-control" id="textIndex" rows="3" placeholder='Votre avis...' required></textarea>
         </div>
         <div className="mb-3">
-          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Email" required/>
+          <input type="email" className="form-control" id="emailIndex" placeholder="Email" required/>
         </div>
         <div className="text-center">
           <button type="submit" className="btn btn-dark w-100">Envoyer</button>

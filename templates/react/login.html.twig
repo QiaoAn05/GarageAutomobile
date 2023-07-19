@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReactController!{% endblock %}
+
+{% block body %}
+    {% block stylesheets %}
+        {{ parent() }}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    <div {{ react_component('Header', { 'fullName': 'Perez' }) }}></div>
+    <div {{ react_component('Login', { 'fullName': 'Johan' }) }}></div>
+    <div {{ react_component('Footer', { 'userId': userId }) }}></div>
+    
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('app') }}
+
+    {% endblock %}
+{% endblock %}
