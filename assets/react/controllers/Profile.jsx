@@ -2,21 +2,27 @@ import React from 'react';
 
 
 const Profile = (props) => {
-  const fullName= "Bob";
+
   return (
     <main>
-        <section className='container comment-form w-50 my-5'>
-        <h2 className='text-center mb-5'>{ fullName }</h2>
-        <div className="mb-3">
-          <input type="email" className="form-control" id="emailLogin" placeholder="Email" required/>
+      <section className='col-12 m-5'>        
+        <div className="card mb-3 w-50 px-5 py-3">
+          <div className="row g-0">
+            <h2 className='mb-5'>Mes informations personnelles</h2>
+            <div className="col-md-4">
+              <p>Nom: </p>
+              <p>Prénom: </p>
+              <p>Tél: </p>
+              <p>Email: </p>
+            </div>
+            <div className="col-md-8 text-end">
+              <p>Rôle:</p>
+            </div>
+            <div className='col-12 d-flex justify-content-end'>
+              <button type="submit" className="btn btn-dark text-warning">Modifier</button>
+            </div>
+          </div>
         </div>
-        <div className="mb-3">
-          <input type="password" className="form-control" id="passwordLogin" placeholder="Mot de passe" required/>
-        </div>
-        <div className="text-center">
-          <button type="submit" className="btn btn-dark w-100 text-warning">Envoyer</button>
-        </div>
-        
       </section>
     </main>
   );
