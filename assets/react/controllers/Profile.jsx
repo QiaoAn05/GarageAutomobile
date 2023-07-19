@@ -2,7 +2,8 @@ import React from 'react';
 
 
 const Profile = (props) => {
-
+  const users = props.users;
+  console.log(users);
   return (
     <main>
       <section className='col-12 m-5'>        
@@ -12,8 +13,8 @@ const Profile = (props) => {
             <div className="col-md-4">
               <p><b>Nom:</b> </p>
               <p><b>Prénom:</b> </p>
-              <p><b>Tél:</b> </p>
-              <p><b>Email:</b> </p>
+              <p><b>Tél: </b> </p>
+              <p><b>Email: </b> </p>
             </div>
             <div className="col-md-8 text-end">
               <p>Rôle:</p>

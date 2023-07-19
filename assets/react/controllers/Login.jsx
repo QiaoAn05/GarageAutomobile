@@ -2,9 +2,10 @@ import React from 'react';
 
 
 const Login = (props) => {
-  const fullName = "Hello World";
+  const fullName = props.user;
   return (
     <main>
+        {fullName}
         <section className='container comment-form w-50 my-5'>
         <h2 className='text-center mb-5'>Connectez-vous en tant que membre du personnel autorisé</h2>
         <div className="mb-3">

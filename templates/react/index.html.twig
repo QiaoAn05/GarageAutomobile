@@ -8,9 +8,8 @@
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
     <div {{ react_component('Header', { 'fullName': 'Perez' }) }}></div>
-    {# <h1>Hello {{ controller_name }}! ✅</h1> #}
     <div {{ react_component('Main', { 'fullName': 'Johan' }) }}></div>
-    <div {{ react_component('Footer', { 'userId': userId }) }}></div>
+    <div {{ react_component('Footer') }}></div>
     
 
     {% block javascripts %}
