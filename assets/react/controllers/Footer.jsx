@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../../images/logo_parrot.png';
 
 const Footer = (props) => {
   const userId = props.userId;
@@ -7,12 +8,7 @@ const Footer = (props) => {
       <div className="container text-center text-md-left">
         <div className="row text-center text-md-left">
           <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <a className="footer-brand text-uppercase mb-4 font-weight-bold text-warning" href="#">
-              Garage V.Parrot
-            </a>
-            <div className="mt-5">
-              <img src="assets/images/logo parrot.png" alt="logo du garage" />
-            </div>
+          <a className="navbar-brand" href="/"><img src={Logo} className="img-fluid rounded-start" alt="Logo" /></a>
           </div>
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h5 className="text-uppercase mb-4 font-weight-bold text-warning">Nos horaires</h5>

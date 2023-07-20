@@ -7,8 +7,8 @@
         {{ parent() }}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
-    <div {{ react_component('Header', { 'fullName': 'Perez' }) }}></div>
-    <div {{ react_component('Profile', { 'users' : 'users' }) }}></div>
+    <div {{ react_component('Header') }}></div>
+    <div {{ react_component('Profile') }}></div>
     <div {{ react_component('Footer') }}></div>
     
 

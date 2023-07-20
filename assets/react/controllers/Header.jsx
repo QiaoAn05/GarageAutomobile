@@ -1,10 +1,11 @@
 import React from 'react';
+import Logo from '../../images/logo_parrot.png';
 
 const Header = (props) => {
   return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Garage V.Parrot</a>
+          <a className="navbar-brand" href="/"><img src={Logo} className="img-fluid rounded-start" alt="Logo" /></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={false} aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
