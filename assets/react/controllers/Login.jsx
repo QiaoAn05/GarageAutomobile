@@ -11,9 +11,9 @@ const Login = (props) => {
 
     axios.post('/profile', { email, password })
       .then(response => {
-        console.log(response.config.data);
-        console.log(response);
-        // window.location.href = '/profile';
+        // console.log(response.config.data);
+        // console.log(response);
+        window.location.href = '/profile';
       })
       .catch(error => {
         console.error('Une erreur s\'est produite lors de la connexion :', error);
