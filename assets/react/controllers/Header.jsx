@@ -18,7 +18,7 @@ const Header = (props) => {
                 <a className="nav-link" href="#">Réparations & entretiens</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Ventes d'occasion</a>
+                <a className="nav-link" href="/secondHand">Ventes d'occasion</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Contact</a>
