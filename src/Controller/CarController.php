@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Car;
 use App\Repository\CarRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -30,14 +31,24 @@ class CarController extends AbstractController
         ]);
     }
 
-    #[Route('/api/cars', name: 'api_add_car', methods: ['POST'])]
-    public function addCar(Request $request, SerializerInterface $serializer, CarRepository $carRepo): Response
+    #[Route('/car/add', name: 'car_add', methods: ['POST'])]
+    public function addCar(Request $request, CarRepository $carRepo): Response
     {
-        $jsonData = $request->getContent();
-        $car = $serializer->deserialize($jsonData, Car::class, 'json');
+        $data = json_decode($request->getContent(), true);
 
-        $carRepo->addCar($car);
+        $name = $data['name'];
+        $price = $data['price'];
+        $yearOfCirculation = $data['yearOfCirculation'];
+        $mileage = $data['mileage'];
 
-        return new JsonResponse(['message' => 'Car added'], Response::HTTP_CREATED);
+        $car = new Car();
+        $car->setName($name);
+        $car->setPrice($price);
+        $car->setYearOfCirculation($yearOfCirculation);
+        $car->setMileage($mileage);
+
+        $carRepo->addCar($car, true);    
+
+        return new JsonResponse(['message' => 'Car added'], 201);
     }
 }
