@@ -25,10 +25,11 @@ const SecondHand = (props) => {
       ) : (
         <ul>
           {carData.map(car => (
-            <li key={car.id}>{car.make} - {car.model}</li>
+            <li key={car.id}>{car.name} - {car.price} €</li>
           ))}
         </ul>
       )}
+      <button>Ajouter</button>
     </main>
   );
 };

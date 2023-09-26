@@ -9,7 +9,7 @@ const Profile = (props) => {
     axios.get('/profile')
       .then(response => {
         // setUserData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch(error => {
         console.error('Une erreur s\'est produite lors de la récupération des détails de l\'utilisateur :', error);
