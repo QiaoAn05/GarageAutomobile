@@ -34,6 +34,21 @@ const SecondHand = (props) => {
         });
 };
 
+const handleRemoveCar = (id) => {
+  axios.delete(`/car/remove/${id}`)
+    .then(response => {
+      // Mettez à jour l'état local en filtrant la voiture supprimée
+      setCarData(prevCarData => prevCarData.filter(car => car.id !== id));
+    })
+    .catch(error => {
+      console.error('Une erreur s\'est produite lors de la suppression de la voiture :', error);
+    });
+};
+
+const handleUpdateCar = (id) => {
+  
+};
+
   useEffect(() => {
     axios.get('/api/cars')
       .then(response => {
@@ -59,6 +74,8 @@ const SecondHand = (props) => {
             - {car.price} € 
             - {car.mileage} km 
             - année de circulation : {car.yearOfCirculation}
+            <button onClick={() => handleUpdateCar(car.id)}>Modifier</button>
+            <button onClick={() => handleRemoveCar(car.id)}>Supprimer</button>
             </li>
           ))}
         </ul>

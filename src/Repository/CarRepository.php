@@ -28,6 +28,25 @@ class CarRepository extends ServiceEntityRepository
         $entityManager->flush();
     }  
 
+    public function updateCar(Car $car, array $newData)
+    {
+        $car->setName($newData['name']);
+        $car->setPrice($newData['price']);
+        $car->setMileage($newData['mileage']);
+        $car->setYearOfCirculation($newData['yearOfCirculation']);
+
+        $entityManager = $this->getEntityManager();
+        $entityManager->flush();
+    }
+ 
+
+    public function removeCar(Car $car)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($car);
+        $entityManager->flush();
+    }  
+
 
 //    /**
 //     * @return Car[] Returns an array of Car objects

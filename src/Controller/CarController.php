@@ -51,4 +51,38 @@ class CarController extends AbstractController
 
         return new JsonResponse(['message' => 'Car added'], 201);
     }
+
+    #[Route('/car/remove/{id}', name: 'car_remove_id', methods: ['DELETE'])]
+    public function removeCar(CarRepository $carRepo, $id): Response
+    {
+        $car = $carRepo->find($id);
+    
+        if (!$car) {
+            return new Response("Car not found", 404);
+        }
+    
+        $carRepo->removeCar($car);
+    
+        return new Response("Car removed successfully");
+    }
+
+    #[Route('/car/update/{id}', name: 'car_update', methods: ['PUT'])]
+public function updateCar(Request $request, CarRepository $carRepo, $id): Response
+{
+    $car = $carRepo->find($id);
+
+    if (!$car) {
+        return new Response("Car not found", 404);
+    }
+
+    // Récupérez les données du formulaire JSON
+    $data = json_decode($request->getContent(), true);
+
+    // Utilisez le repository pour mettre à jour la voiture
+    $carRepo->updateCar($car, $data);
+
+    return new Response("Car updated successfully");
+}
+
+    
 }
