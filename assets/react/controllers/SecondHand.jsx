@@ -18,6 +18,7 @@ const SecondHand = (props) => {
         yearOfCirculation: 0,
     });
     const [isUpdateFormVisible, setUpdateFormVisible] = useState(false);
+    const [addCar, setAddCar] = useState(false);
 
     const handleAddCar = (e) => {
         e.preventDefault();
@@ -47,6 +48,7 @@ const SecondHand = (props) => {
         axios.delete(`/car/remove/${id}`)
             .then(response => {
                 setCarData(prevCarData => prevCarData.filter(car => car.id !== id));
+                alert("L'élément a bien été supprimé");
             })
             .catch(error => {
                 console.error('Une erreur s\'est produite lors de la suppression de la voiture :', error);
@@ -56,6 +58,9 @@ const SecondHand = (props) => {
     const handleUpdateFormDisplay = (car) => {
         setUpdateCarData(car);
         setUpdateFormVisible(true);
+    };
+    const handleModifyFormDisplay = () => {
+        setAddCar(true);
     };
 
     const handleUpdateCar = () => {
@@ -67,6 +72,7 @@ const SecondHand = (props) => {
                         car.id === updateCarData.id ? updateCarData : car
                     )
                 );
+                alert("L'élément a bien été modifié");
                 setUpdateFormVisible(false);
             })
             .catch(error => {
@@ -88,19 +94,48 @@ const SecondHand = (props) => {
 
     return (
         <main>
-            <h1>Test Title</h1>
+            <h1>Voitures d'occasion</h1>
             {loading ? (
                 <p>Chargement en cours...</p>
             ) : (
-                <ul>
-                    {carData.map(car => (
-                        <li key={car.id}>
-                            {car.name} - {car.price} € - {car.mileage} km - Année de circulation : {car.yearOfCirculation}
-                            <button onClick={() => handleUpdateFormDisplay(car)}>Modifier</button>
-                            <button onClick={() => handleRemoveCar(car.id)}>Supprimer</button>
-                        </li>
-                    ))}
-                </ul>
+                <table className="table table-bordered align-middle">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prix (€)</th>
+                            <th>Kilométrage (km)</th>
+                            <th>Année de circulation</th>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {carData.map(car => (
+                            <tr key={car.id}>
+                                <td>{car.name}</td>
+                                <td>{car.price}</td>
+                                <td>{car.mileage}</td>
+                                <td>{car.yearOfCirculation}</td>
+                                <td>
+                                    <button
+                                        className="btn btn-primary"
+                                        onClick={() => handleUpdateFormDisplay(car)}
+                                    >
+                                        Modifier
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={() => handleRemoveCar(car.id)}
+                                    >
+                                        Supprimer
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             )}
 
             {isUpdateFormVisible && (
@@ -154,47 +189,49 @@ const SecondHand = (props) => {
                             })
                         }
                     />
-                    {/* Ajoutez d'autres champs pour les autres propriétés de la voiture */}
                     <button onClick={handleUpdateCar}>Mettre à jour</button>
                     <button onClick={() => setUpdateFormVisible(false)}>Annuler</button>
                 </form>
             )}
             {!isUpdateFormVisible && (
-            <form>
-                <label htmlFor="carName">Nom</label>
-                <input
-                    type="text"
-                    id="carName"
-                    placeholder='Nom'
-                    value={carName}
-                    onChange={(e) => setCarName(e.target.value)}
-                />
-                <label htmlFor="carPrice">Prix</label>
-                <input
-                    type="number"
-                    id="carPrice"
-                    placeholder='Prix'
-                    value={carPrice}
-                    onChange={(e) => setCarPrice(e.target.value)}
-                />
-                <label htmlFor="carMileage">Kilométrage</label>
-                <input
-                    type="number"
-                    id="carMileage"
-                    placeholder='Kilométrage'
-                    value={carMileage}
-                    onChange={(e) => setCarMileage(e.target.value)}
-                />
-                <label htmlFor="carYear">Année de circulation</label>
-                <input
-                    type="number"
-                    id="carYear"
-                    placeholder='Année de circulation'
-                    value={carYear}
-                    onChange={(e) => setCarYear(e.target.value)}
-                />
-                <button onClick={handleAddCar}>Ajouter</button>
-            </form>
+                <button className='btn btn-success' onClick={handleModifyFormDisplay}>Ajouter</button>
+            )}
+            {addCar && (
+                <form>
+                    <label htmlFor="carName">Nom</label>
+                    <input
+                        type="text"
+                        id="carName"
+                        placeholder='Nom'
+                        value={carName}
+                        onChange={(e) => setCarName(e.target.value)}
+                    />
+                    <label htmlFor="carPrice">Prix</label>
+                    <input
+                        type="number"
+                        id="carPrice"
+                        placeholder='Prix'
+                        value={carPrice}
+                        onChange={(e) => setCarPrice(e.target.value)}
+                    />
+                    <label htmlFor="carMileage">Kilométrage</label>
+                    <input
+                        type="number"
+                        id="carMileage"
+                        placeholder='Kilométrage'
+                        value={carMileage}
+                        onChange={(e) => setCarMileage(e.target.value)}
+                    />
+                    <label htmlFor="carYear">Année de circulation</label>
+                    <input
+                        type="number"
+                        id="carYear"
+                        placeholder='Année de circulation'
+                        value={carYear}
+                        onChange={(e) => setCarYear(e.target.value)}
+                    />
+                    <button onClick={handleAddCar}>Confirmer</button>
+                </form>
             )}
         </main>
     );
