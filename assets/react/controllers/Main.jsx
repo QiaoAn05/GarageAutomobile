@@ -53,7 +53,7 @@ const Main = (props) => {
                 <div className="card-body">
                   <h5 className="card-title text-dark text-uppercase">Ventes d'occasion</h5>
                   <p className="card-text">Roulez avec style et fiabilité. Découvrez notre sélection exclusive de voitures d'occasion de qualité supérieure, prêtes à prendre la route.</p>
-                  <button type="button" className="btn btn-dark">En savoir plus</button>
+                  <a href="/secondHand"><button type="button" className="btn btn-dark">En savoir plus</button></a>
                 </div>
               </div>
             </div>

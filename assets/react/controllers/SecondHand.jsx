@@ -200,6 +200,7 @@ const SecondHand = (props) => {
             )}
             {addCar && (
                 <form>
+                    <h3>Ajouter une voiture :</h3>
                     <label htmlFor="carName">Nom</label>
                     <input
                         type="text"
@@ -232,8 +233,8 @@ const SecondHand = (props) => {
                         value={carYear}
                         onChange={(e) => setCarYear(e.target.value)}
                     />
-                    <button onClick={handleAddCar}>Confirmer</button>
-                    <button onClick={() => setAddCar(false)}>Annuler</button>
+                    <button className='btn-primary' onClick={handleAddCar}>Confirmer</button>
+                    <button className='btn-secondary' onClick={() => setAddCar(false)}>Annuler</button>
                 </form>
             )}
         </main>
