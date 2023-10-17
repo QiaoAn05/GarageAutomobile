@@ -105,6 +105,7 @@ const SecondHand = (props) => {
 
             {isUpdateFormVisible && (
                 <form>
+                    <h3>Modifier les données de la voiture</h3>
                     <label htmlFor="updateCarName">Nom</label>
                     <input
                         type="text"
@@ -145,11 +146,11 @@ const SecondHand = (props) => {
                     <input
                         type="number"
                         id="updateCarYear"
-                        value={updateCarData.year}
+                        value={updateCarData.yearOfCirculation}
                         onChange={(e) =>
                             setUpdateCarData({
                                 ...updateCarData,
-                                year: e.target.value,
+                                yearOfCirculation: e.target.value,
                             })
                         }
                     />
@@ -158,7 +159,7 @@ const SecondHand = (props) => {
                     <button onClick={() => setUpdateFormVisible(false)}>Annuler</button>
                 </form>
             )}
-
+            {!isUpdateFormVisible && (
             <form>
                 <label htmlFor="carName">Nom</label>
                 <input
@@ -194,6 +195,7 @@ const SecondHand = (props) => {
                 />
                 <button onClick={handleAddCar}>Ajouter</button>
             </form>
+            )}
         </main>
     );
 };
