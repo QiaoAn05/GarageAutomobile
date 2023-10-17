@@ -37,6 +37,7 @@ const SecondHand = (props) => {
 
         axios.post('/car/add', newCarData)
             .then(response => {
+                alert("L'élément a bien été ajouté");
                 window.location.reload();
             })
             .catch(error => {
@@ -194,7 +195,7 @@ const SecondHand = (props) => {
                     <button onClick={() => setUpdateFormVisible(false)}>Annuler</button>
                 </form>
             )}
-            {!isUpdateFormVisible && (
+            {!isUpdateFormVisible && !addCar && (
                 <button className='btn btn-success' onClick={handleModifyFormDisplay}>Ajouter</button>
             )}
             {addCar && (
