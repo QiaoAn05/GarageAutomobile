@@ -58,6 +58,7 @@ const SecondHand = (props) => {
     const handleUpdateFormDisplay = (car) => {
         setUpdateCarData(car);
         setUpdateFormVisible(true);
+        setAddCar(false);
     };
     const handleModifyFormDisplay = () => {
         setAddCar(true);
@@ -231,6 +232,7 @@ const SecondHand = (props) => {
                         onChange={(e) => setCarYear(e.target.value)}
                     />
                     <button onClick={handleAddCar}>Confirmer</button>
+                    <button onClick={() => setAddCar(false)}>Annuler</button>
                 </form>
             )}
         </main>
